@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20240322161500
+      author: Ezhkov Vsevolod
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(128)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar(128)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: birth
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: biography
+                  type: varchar(2048)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp(6)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp(6)
+                  constraints:
+                    nullable: false

@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20240322165000
+      author: Ezhkov Vsevolod
+      changes:
+        - createTable:
+            tableName: friends
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: request_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: recipient_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: accepted
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp(6)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp(6)
+                  constraints:
+                    nullable: false

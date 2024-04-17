@@ -1,0 +1,11 @@
+services:
+  postgres:
+    container_name: psql_vistar
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=postgres'
+      - 'POSTGRES_PASSWORD=bbGh8cnnmbUHo1okBipp'
+      - 'POSTGRES_USER=postgres'
+    ports:
+      - '5433:5432'
+    restart: unless-stopped

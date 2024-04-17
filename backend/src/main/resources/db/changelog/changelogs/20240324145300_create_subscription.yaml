@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20240324145300
+      author: Ezhkov Vsevolod
+      changes:
+        - createTable:
+            tableName: subscription
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: subscribed_at
+                  type: timestamp(6)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: subscribed_until
+                  type: timestamp(6)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp(6)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp(6)
+                  constraints:
+                    nullable: false

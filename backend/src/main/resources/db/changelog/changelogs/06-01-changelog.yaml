@@ -1,0 +1,1607 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1712427060251-150
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: actors_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-151
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: chat_users_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-152
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: chats_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-153
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: comments_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-154
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: film_actor_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-155
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: film_genre_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-156
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: film_status_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-157
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: films_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-158
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: friends_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-159
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: genres_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-160
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: messages_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-161
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: room_users_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-162
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: rooms_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-163
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: subscription_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-164
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: user_actor_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-165
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: user_genre_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-166
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 50
+            sequenceName: users_seq
+            startValue: 1
+  - changeSet:
+      id: 1712427060251-167
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addUniqueConstraint:
+            columnNames: user_id
+            constraintName: uc_subscription_user
+            tableName: subscription
+  - changeSet:
+      id: 1712427060251-169
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropSequence:
+            sequenceName: sequence_generator
+  - changeSet:
+      id: 1712427060251-1
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: actor_id
+            tableName: film_actor
+        - dropColumn:
+            columnName: film_id
+            tableName: film_actor
+        - dropColumn:
+            columnName: id
+            tableName: film_actor
+  - changeSet:
+      id: 1712427060251-2
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_FILM_ACTOR_ON_ACTOR
+                    references: actors(id)
+                  name: actor_id
+                  type: BIGINT
+            tableName: film_actor
+  - changeSet:
+      id: 1712427060251-3
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: actor_id
+            tableName: film_actor
+  - changeSet:
+      id: 1712427060251-4
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: actor_id
+            tableName: user_actor
+        - dropColumn:
+            columnName: id
+            tableName: user_actor
+        - dropColumn:
+            columnName: user_id
+            tableName: user_actor
+  - changeSet:
+      id: 1712427060251-5
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_USER_ACTOR_ON_ACTOR
+                    references: actors(id)
+                  name: actor_id
+                  type: BIGINT
+            tableName: user_actor
+  - changeSet:
+      id: 1712427060251-6
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: actor_id
+            tableName: user_actor
+  - changeSet:
+      id: 1712427060251-7
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: biography
+            newDataType: VARCHAR(255)
+            tableName: actors
+  - changeSet:
+      id: 1712427060251-8
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: chat_id
+            tableName: chat_users
+        - dropColumn:
+            columnName: id
+            tableName: chat_users
+        - dropColumn:
+            columnName: user_id
+            tableName: chat_users
+  - changeSet:
+      id: 1712427060251-9
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_CHAT_USERS_ON_CHAT
+                    nullable: false
+                    references: chats(id)
+                    validateNullable: true
+                  name: chat_id
+                  type: BIGINT
+            tableName: chat_users
+  - changeSet:
+      id: 1712427060251-10
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: chat_id
+            tableName: messages
+        - dropColumn:
+            columnName: id
+            tableName: messages
+        - dropColumn:
+            columnName: user_id
+            tableName: messages
+  - changeSet:
+      id: 1712427060251-11
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_MESSAGES_ON_CHAT
+                    references: chats(id)
+                  name: chat_id
+                  type: BIGINT
+            tableName: messages
+  - changeSet:
+      id: 1712427060251-12
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: chat_id
+            tableName: messages
+  - changeSet:
+      id: 1712427060251-13
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: comment_text
+            newDataType: VARCHAR(255)
+            tableName: comments
+  - changeSet:
+      id: 1712427060251-14
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: actors
+  - changeSet:
+      id: 1712427060251-15
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: chat_users
+  - changeSet:
+      id: 1712427060251-16
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: chats
+  - changeSet:
+      id: 1712427060251-17
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: comments
+  - changeSet:
+      id: 1712427060251-18
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: film_actor
+  - changeSet:
+      id: 1712427060251-19
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: film_genre
+  - changeSet:
+      id: 1712427060251-20
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: film_status
+  - changeSet:
+      id: 1712427060251-21
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: films
+  - changeSet:
+      id: 1712427060251-22
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: friends
+  - changeSet:
+      id: 1712427060251-23
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: genres
+  - changeSet:
+      id: 1712427060251-24
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: messages
+  - changeSet:
+      id: 1712427060251-25
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: room_users
+  - changeSet:
+      id: 1712427060251-26
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: rooms
+  - changeSet:
+      id: 1712427060251-27
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: subscription
+  - changeSet:
+      id: 1712427060251-28
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: user_actor
+  - changeSet:
+      id: 1712427060251-29
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: user_genre
+  - changeSet:
+      id: 1712427060251-30
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: created_at
+            tableName: users
+  - changeSet:
+      id: 1712427060251-31
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: creator_id
+            tableName: rooms
+        - dropColumn:
+            columnName: film_id
+            tableName: rooms
+        - dropColumn:
+            columnName: id
+            tableName: rooms
+  - changeSet:
+      id: 1712427060251-32
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_ROOMS_ON_CREATOR
+                    references: users(user_id)
+                  name: creator_id
+                  type: BIGINT
+            tableName: rooms
+  - changeSet:
+      id: 1712427060251-33
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: creator_id
+            tableName: rooms
+  - changeSet:
+      id: 1712427060251-34
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: description
+            newDataType: VARCHAR(255)
+            tableName: films
+  - changeSet:
+      id: 1712427060251-35
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: description
+            newDataType: VARCHAR(255)
+            tableName: rooms
+  - changeSet:
+      id: 1712427060251-36
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: email
+            newDataType: VARCHAR(255)
+            tableName: users
+  - changeSet:
+      id: 1712427060251-37
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: film_id
+            tableName: comments
+        - dropColumn:
+            columnName: id
+            tableName: comments
+        - dropColumn:
+            columnName: user_id
+            tableName: comments
+  - changeSet:
+      id: 1712427060251-38
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_COMMENTS_ON_FILM
+                    references: films(id)
+                  name: film_id
+                  type: BIGINT
+            tableName: comments
+  - changeSet:
+      id: 1712427060251-39
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: film_id
+            tableName: comments
+  - changeSet:
+      id: 1712427060251-41
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_FILM_ACTOR_ON_FILM
+                    references: films(id)
+                  name: film_id
+                  type: BIGINT
+            tableName: film_actor
+  - changeSet:
+      id: 1712427060251-42
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: film_id
+            tableName: film_actor
+  - changeSet:
+      id: 1712427060251-43
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: film_id
+            tableName: film_genre
+        - dropColumn:
+            columnName: genre_id
+            tableName: film_genre
+        - dropColumn:
+            columnName: id
+            tableName: film_genre
+  - changeSet:
+      id: 1712427060251-44
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_FILM_GENRE_ON_FILM
+                    references: films(id)
+                  name: film_id
+                  type: BIGINT
+            tableName: film_genre
+  - changeSet:
+      id: 1712427060251-45
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: film_id
+            tableName: film_genre
+  - changeSet:
+      id: 1712427060251-46
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: film_id
+            tableName: film_status
+        - dropColumn:
+            columnName: id
+            tableName: film_status
+        - dropColumn:
+            columnName: user_id
+            tableName: film_status
+  - changeSet:
+      id: 1712427060251-47
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_FILM_STATUS_ON_FILM
+                    nullable: false
+                    references: films(id)
+                    validateNullable: true
+                  name: film_id
+                  type: BIGINT
+            tableName: film_status
+  - changeSet:
+      id: 1712427060251-49
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_ROOMS_ON_FILM
+                    references: films(id)
+                  name: film_id
+                  type: BIGINT
+            tableName: rooms
+  - changeSet:
+      id: 1712427060251-50
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: film_id
+            tableName: rooms
+  - changeSet:
+      id: 1712427060251-52
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_FILM_GENRE_ON_GENRE
+                    references: genres(id)
+                  name: genre_id
+                  type: BIGINT
+            tableName: film_genre
+  - changeSet:
+      id: 1712427060251-53
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: genre_id
+            tableName: film_genre
+  - changeSet:
+      id: 1712427060251-54
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: genre_id
+            tableName: user_genre
+        - dropColumn:
+            columnName: id
+            tableName: user_genre
+        - dropColumn:
+            columnName: user_id
+            tableName: user_genre
+  - changeSet:
+      id: 1712427060251-55
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_USER_GENRE_ON_GENRE
+                    references: genres(id)
+                  name: genre_id
+                  type: BIGINT
+            tableName: user_genre
+  - changeSet:
+      id: 1712427060251-56
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: genre_id
+            tableName: user_genre
+  - changeSet:
+      id: 1712427060251-57
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: id
+            tableName: actors
+  - changeSet:
+      id: 1712427060251-58
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_actors
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: actors
+  - changeSet:
+      id: 1712427060251-60
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_chat_users
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: chat_users
+  - changeSet:
+      id: 1712427060251-61
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: id
+            tableName: chats
+  - changeSet:
+      id: 1712427060251-62
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_chats
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: chats
+  - changeSet:
+      id: 1712427060251-64
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_comments
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: comments
+  - changeSet:
+      id: 1712427060251-66
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_film_actor
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: film_actor
+  - changeSet:
+      id: 1712427060251-68
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_film_genre
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: film_genre
+  - changeSet:
+      id: 1712427060251-70
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_film_status
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: film_status
+  - changeSet:
+      id: 1712427060251-71
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: id
+            tableName: films
+  - changeSet:
+      id: 1712427060251-72
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_films
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: films
+  - changeSet:
+      id: 1712427060251-73
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: id
+            tableName: friends
+        - dropColumn:
+            columnName: recipient_id
+            tableName: friends
+        - dropColumn:
+            columnName: request_id
+            tableName: friends
+  - changeSet:
+      id: 1712427060251-74
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_friends
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: friends
+  - changeSet:
+      id: 1712427060251-75
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: id
+            tableName: genres
+  - changeSet:
+      id: 1712427060251-76
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_genres
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: genres
+  - changeSet:
+      id: 1712427060251-78
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_messages
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: messages
+  - changeSet:
+      id: 1712427060251-79
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: id
+            tableName: room_users
+        - dropColumn:
+            columnName: room_id
+            tableName: room_users
+        - dropColumn:
+            columnName: user_id
+            tableName: room_users
+  - changeSet:
+      id: 1712427060251-80
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_room_users
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: room_users
+  - changeSet:
+      id: 1712427060251-82
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_rooms
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: rooms
+  - changeSet:
+      id: 1712427060251-83
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: id
+            tableName: subscription
+        - dropColumn:
+            columnName: user_id
+            tableName: subscription
+  - changeSet:
+      id: 1712427060251-84
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_subscription
+                    unique: true
+                    uniqueConstraintName: uc_subscription_user
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: subscription
+  - changeSet:
+      id: 1712427060251-86
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user_actor
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: user_actor
+  - changeSet:
+      id: 1712427060251-88
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user_genre
+                    validateNullable: true
+                  name: id
+                  type: BIGINT
+            tableName: user_genre
+  - changeSet:
+      id: 1712427060251-89
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: last_message
+            newDataType: VARCHAR(255)
+            tableName: chats
+  - changeSet:
+      id: 1712427060251-90
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: message_text
+            newDataType: VARCHAR(255)
+            tableName: messages
+  - changeSet:
+      id: 1712427060251-91
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: name
+            newDataType: VARCHAR(255)
+            tableName: actors
+  - changeSet:
+      id: 1712427060251-92
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: name
+            newDataType: VARCHAR(255)
+            tableName: chats
+  - changeSet:
+      id: 1712427060251-93
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: number
+            newDataType: VARCHAR(255)
+            tableName: users
+  - changeSet:
+      id: 1712427060251-94
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: password
+            newDataType: VARCHAR(255)
+            tableName: users
+  - changeSet:
+      id: 1712427060251-95
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: path
+            newDataType: VARCHAR(255)
+            tableName: films
+  - changeSet:
+      id: 1712427060251-96
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: profile_info
+            newDataType: VARCHAR(255)
+            tableName: users
+  - changeSet:
+      id: 1712427060251-98
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_FRIENDS_ON_RECIPIENT
+                    nullable: false
+                    references: users(user_id)
+                    validateNullable: true
+                  name: recipient_id
+                  type: BIGINT
+            tableName: friends
+  - changeSet:
+      id: 1712427060251-100
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_FRIENDS_ON_REQUEST
+                    nullable: false
+                    references: users(user_id)
+                    validateNullable: true
+                  name: request_id
+                  type: BIGINT
+            tableName: friends
+  - changeSet:
+      id: 1712427060251-102
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_ROOM_USERS_ON_ROOM
+                    references: rooms(id)
+                  name: room_id
+                  type: BIGINT
+            tableName: room_users
+  - changeSet:
+      id: 1712427060251-103
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: room_id
+            tableName: room_users
+  - changeSet:
+      id: 1712427060251-104
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: surname
+            newDataType: VARCHAR(255)
+            tableName: actors
+  - changeSet:
+      id: 1712427060251-105
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: title
+            newDataType: VARCHAR(255)
+            tableName: films
+  - changeSet:
+      id: 1712427060251-106
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: title
+            newDataType: VARCHAR(255)
+            tableName: genres
+  - changeSet:
+      id: 1712427060251-107
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: actors
+  - changeSet:
+      id: 1712427060251-108
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: chat_users
+  - changeSet:
+      id: 1712427060251-109
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: chats
+  - changeSet:
+      id: 1712427060251-110
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: comments
+  - changeSet:
+      id: 1712427060251-111
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: film_actor
+  - changeSet:
+      id: 1712427060251-112
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: film_genre
+  - changeSet:
+      id: 1712427060251-113
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: film_status
+  - changeSet:
+      id: 1712427060251-114
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: films
+  - changeSet:
+      id: 1712427060251-115
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: friends
+  - changeSet:
+      id: 1712427060251-116
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: genres
+  - changeSet:
+      id: 1712427060251-117
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: messages
+  - changeSet:
+      id: 1712427060251-118
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: room_users
+  - changeSet:
+      id: 1712427060251-119
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: rooms
+  - changeSet:
+      id: 1712427060251-120
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: subscription
+  - changeSet:
+      id: 1712427060251-121
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: user_actor
+  - changeSet:
+      id: 1712427060251-122
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: user_genre
+  - changeSet:
+      id: 1712427060251-123
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: datetime
+            columnName: updated_at
+            tableName: users
+  - changeSet:
+      id: 1712427060251-125
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_CHAT_USERS_ON_USER
+                    nullable: false
+                    references: users(user_id)
+                    validateNullable: true
+                  name: user_id
+                  type: BIGINT
+            tableName: chat_users
+  - changeSet:
+      id: 1712427060251-127
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_COMMENTS_ON_USER
+                    references: users(user_id)
+                  name: user_id
+                  type: BIGINT
+            tableName: comments
+  - changeSet:
+      id: 1712427060251-128
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: user_id
+            tableName: comments
+  - changeSet:
+      id: 1712427060251-130
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_FILM_STATUS_ON_USER
+                    nullable: false
+                    references: users(user_id)
+                    validateNullable: true
+                  name: user_id
+                  type: BIGINT
+            tableName: film_status
+  - changeSet:
+      id: 1712427060251-132
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_MESSAGES_ON_USER
+                    references: users(user_id)
+                  name: user_id
+                  type: BIGINT
+            tableName: messages
+  - changeSet:
+      id: 1712427060251-133
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: user_id
+            tableName: messages
+  - changeSet:
+      id: 1712427060251-135
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_ROOM_USERS_ON_USER
+                    references: users(user_id)
+                  name: user_id
+                  type: BIGINT
+            tableName: room_users
+  - changeSet:
+      id: 1712427060251-136
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: user_id
+            tableName: room_users
+  - changeSet:
+      id: 1712427060251-138
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_SUBSCRIPTION_ON_USER
+                    references: users(user_id)
+                    unique: true
+                    uniqueConstraintName: uc_subscription_user
+                  name: user_id
+                  type: BIGINT
+            tableName: subscription
+  - changeSet:
+      id: 1712427060251-139
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: user_id
+            tableName: subscription
+  - changeSet:
+      id: 1712427060251-141
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_USER_ACTOR_ON_USER
+                    references: users(user_id)
+                  name: user_id
+                  type: BIGINT
+            tableName: user_actor
+  - changeSet:
+      id: 1712427060251-142
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: user_id
+            tableName: user_actor
+  - changeSet:
+      id: 1712427060251-144
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    foreignKeyName: FK_USER_GENRE_ON_USER
+                    references: users(user_id)
+                  name: user_id
+                  type: BIGINT
+            tableName: user_genre
+  - changeSet:
+      id: 1712427060251-145
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropNotNullConstraint:
+            columnDataType: bigint
+            columnName: user_id
+            tableName: user_genre
+  - changeSet:
+      id: 1712427060251-146
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: user_id
+            tableName: users
+  - changeSet:
+      id: 1712427060251-147
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_users
+                    validateNullable: true
+                  name: user_id
+                  type: BIGINT
+            tableName: users
+  - changeSet:
+      id: 1712427060251-148
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: user_status
+            newDataType: VARCHAR(255)
+            tableName: chats
+  - changeSet:
+      id: 1712427060251-149
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: username
+            newDataType: VARCHAR(255)
+            tableName: users
+

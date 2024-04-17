@@ -1,0 +1,69 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20240318165000
+      author: Sazhin Boris
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: user_id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(64)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(128)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: birth
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: registration_date
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_login_date
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: favorite_genre
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: profile_info
+                  type: varchar(256)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: number
+                  type: varchar(11)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp(6)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp(6)
+                  constraints:
+                    nullable: false
