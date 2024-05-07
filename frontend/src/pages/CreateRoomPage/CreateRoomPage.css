@@ -1,0 +1,44 @@
+.create-room-page-wrapper__third-child {
+    grid-column: 2 / 5;
+    grid-row: 2 / -1;
+}
+
+.create-room-page-wrapper__fifth-child {
+    grid-row: 3 / -1;
+    grid-column: 5 / 7;
+}
+
+.create-room-title {
+    font-size: 54px;
+    font-weight: bold;
+}
+
+.create-room-img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.create-room-description {
+    padding: 1%;
+    height: 25%;
+    border: 3px solid rgb(35, 35, 35);
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    overflow-y: scroll;
+    scrollbar-color: rgb(35, 35, 35) #111;
+    scrollbar-width: thin;
+}
+
+.create-room-button {
+    height: 55px;
+    width: 200px;
+    border-radius: 20px;
+    border: transparent;
+    background: #512da8;
+    margin-left: 35%;
+    font-size: 30px;
+}
+
+.create-room-button:hover {
+    color: #08ff00;
+}

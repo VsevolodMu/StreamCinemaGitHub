@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1715088740086-1
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: number
+            newDataType: VARCHAR(20)
+            tableName: users
+  - changeSet:
+      id: 1715088740086-2
+      author: vsevolodezhkov (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - modifyDataType:
+            columnName: path
+            newDataType: VARCHAR(51200)
+            tableName: films
+

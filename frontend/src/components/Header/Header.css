@@ -1,0 +1,10 @@
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.header-wrapper:first-child {
+    font-size: 15px;
+}

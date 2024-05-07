@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1714386193845-1
+      author: User (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_file_meta_data
+                  name: file_id
+                  type: VARCHAR(255)
+              - column:
+                  name: size_file
+                  type: BIGINT
+              - column:
+                  name: content_type
+                  type: VARCHAR(255)
+            tableName: file_meta_data
+  - changeSet:
+      id: 1714386193845-2
+      author: User (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropTable:
+            cascadeConstraints: true
+            tableName: media
+  - changeSet:
+      id: 1714386193845-3
+      author: User (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropSequence:
+            sequenceName: media_seq
+

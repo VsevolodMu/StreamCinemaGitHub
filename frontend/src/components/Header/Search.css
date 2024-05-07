@@ -1,0 +1,24 @@
+.header-search {
+    padding-right: 85px;
+    display: flex;
+}
+
+.header-search__input {
+    height: 25px;
+    width: 400px;
+    border-radius: 20px;
+    border: transparent;
+    background: #512da8;
+    padding-left: 25px;
+    margin-top: 3%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    color: #36a8ff;
+}
+
+.header-search__loop {
+    margin-top: 15px;
+    padding-left: 25px;
+    height: 30px;
+}

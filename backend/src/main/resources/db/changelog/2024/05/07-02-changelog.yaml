@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1715085072728-2
+      author: lord3 (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: created_at
+                  type: DATETIME
+            tableName: rooms
+  - changeSet:
+      id: 1715085072728-3
+      author: lord3 (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - dropColumn:
+            columnName: created_date
+            tableName: rooms
+

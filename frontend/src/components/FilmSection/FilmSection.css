@@ -1,0 +1,24 @@
+.card-player-recommendation-wrapper {
+    margin-top: 50px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.card-player-text {
+    display: flex;
+    justify-content: center;
+}
+
+.film-img {
+    height: 60%;
+    border-radius: 20px;
+    transition: transform 0.7s;
+    margin-right: 50px;
+}
+
+.film-img:hover {
+    border: #36a8ff 3px solid;
+    transform: scale(1.2)
+}

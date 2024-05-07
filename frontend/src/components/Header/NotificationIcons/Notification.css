@@ -1,0 +1,27 @@
+.notification-wrapper {
+    display: flex;
+    padding-right: 50px;
+}
+
+.notification-wrapper__icons {
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border-radius: 35px;
+    border: 2px solid #512da8;
+}
+
+.notification-wrapper__icons:hover {
+    border: 2px solid #2da850;
+    cursor: pointer;
+}
+
+.notification-wrapper__icons:not(:last-child) {
+    margin-right: 25px;
+}
+
+.notification-wrapper__bell {
+}

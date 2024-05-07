@@ -1,0 +1,12 @@
+.room-input {
+    height: 55px;
+    min-width: 500px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    border: transparent;
+    background: #512da8;
+    padding-left: 25px;
+    margin-top: 3%;
+    margin-left: 5%;
+    color: #36a8ff;
+}
