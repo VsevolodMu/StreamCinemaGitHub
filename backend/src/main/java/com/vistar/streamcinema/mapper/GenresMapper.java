@@ -10,5 +10,6 @@ import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 @Mapper(componentModel = SPRING)
 public interface GenresMapper {
     GenresOutDto toDTO(Genres genres);
+
     Genres toEntity(GenresInDto genresInDto);
 }

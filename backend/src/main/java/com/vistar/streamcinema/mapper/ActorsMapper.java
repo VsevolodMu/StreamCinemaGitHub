@@ -10,6 +10,7 @@ import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 @Mapper(componentModel = SPRING)
 public interface ActorsMapper {
     ActorsOutDto toDTO(Actors actors);
+
     Actors toEntity(ActorsInDto actorsInDto);
     /*@BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     Actors partialUpdate(ActorsDTO actorsDTO, @MappingTarget Actors actors);

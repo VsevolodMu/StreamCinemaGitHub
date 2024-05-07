@@ -39,3 +39,15 @@ databaseChangeLog:
 #      file: db/changelog/changelogs/20240324171400_create_foreign_keys.yaml
   - include:
       file: db/changelog/2024/04/08-01-changelog.yaml
+  - include:
+      file: db/changelog/2024/04/10-01-changelog.yaml
+  - include:
+      file: db/changelog/2024/04/29-01-changelog.yaml
+  - include:
+      file: db/changelog/2024/05/05-01-changelog.yaml
+  - include:
+      file: db/changelog/2024/05/07-01-changelog.yaml
+  - include:
+      file: db/changelog/2024/05/07-02-changelog.yaml
+  - include:
+      file: db/changelog/2024/05/07-03-changelog.yaml

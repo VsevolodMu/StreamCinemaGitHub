@@ -10,14 +10,17 @@ import org.mapstruct.Mapper;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 
-@Mapper(componentModel = SPRING,uses = {FilmActorsService.class})
+@Mapper(componentModel = SPRING, uses = {FilmActorsService.class})
 public abstract class FilmActorsMapper {
     public abstract FilmActorsOutDto toDTO(FilmActors filmActors);
+
     public abstract FilmActors toEntity(FilmActorsInDto filmActorsOutDto);
+
     protected long toFilmID(Films films) {
 
         return films.getId();
     }
+
     protected long toActorID(Actors actors) {
 
         return actors.getId();

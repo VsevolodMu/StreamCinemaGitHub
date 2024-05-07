@@ -9,9 +9,10 @@ import org.mapstruct.Mapper;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 
-@Mapper(componentModel = SPRING,uses = {SubscriptionService.class})
+@Mapper(componentModel = SPRING, uses = {SubscriptionService.class})
 public abstract class SubscriptionsMapper {
     public abstract SubscriptionsOutDto toDTO(Subscriptions subscriptions);
+
     public abstract Subscriptions toEntity(SubscriptionsInDto subscriptionsOutDto);
 
     protected long toUserID(Users users) {

@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class FilmsController {
     private final FilmsService filmsService;
     private final FilmsMapper filmsMapper;
@@ -31,9 +31,16 @@ public class FilmsController {
     public FilmsOutDto showFilm(@PathVariable long id) {
         Films films = filmsService.getFilm(id);
         if (films == null) {
-            throw new NotFoundException("Неверно уканазанный идентификатор. Фильм с id = " + id + " не найден в базе данных.");
+            throw new NotFoundException("Неверно указанный идентификатор. Фильм с id = " + id + " не найден в базе данных.");
         }
         return filmsMapper.toDTO(films);
+    }
+
+    @GetMapping("/films/themostpopular")
+    public List<FilmsOutDto> showTheMostPopularFilms() {
+        List<Films> allFilms = filmsService.getTheMostPopularFilms();
+
+        return allFilms.stream().map(filmsMapper::toDTO).collect(Collectors.toList());
     }
 
     @PostMapping("/films")

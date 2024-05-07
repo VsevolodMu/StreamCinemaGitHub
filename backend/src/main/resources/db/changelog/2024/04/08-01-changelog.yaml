@@ -425,17 +425,22 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                   name: title
-                  type: VARCHAR(64)
+                  type: VARCHAR(128)
               - column:
                   constraints:
                     nullable: false
                   name: description
-                  type: VARCHAR(1024)
+                  type: VARCHAR(2048)
               - column:
                   constraints:
                     nullable: false
                   name: rate
                   type: DOUBLE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: cover
+                  type: VARCHAR(1024)
               - column:
                   constraints:
                     nullable: false
@@ -751,6 +756,11 @@ databaseChangeLog:
                     nullable: false
                   name: birth
                   type: DATETIME
+              - column:
+                  constraints:
+                    nullable: false
+                  name: role
+                  type: VARCHAR(255)
             tableName: users
   - changeSet:
       id: 1712608970890-35

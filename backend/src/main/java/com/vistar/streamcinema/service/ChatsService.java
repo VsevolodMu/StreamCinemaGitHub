@@ -43,7 +43,6 @@ public class ChatsService {
     @Transactional
     public Chats updateChat(long id, Chats chats) {
         Chats chat = chatsRepository.findById(id).orElseThrow(() -> new NotFoundException("Невозможно обновить данные. Чат с id = " + id + " не найден в базе данных."));
-        ;
         chat.setLastMessageTime(chats.getLastMessageTime());
         chat.setUserStatus(chats.getUserStatus());
         chat.setName(chats.getName());

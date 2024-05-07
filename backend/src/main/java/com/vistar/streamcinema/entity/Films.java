@@ -38,22 +38,26 @@ public class Films extends BaseEntity<Long> {
     private Long id;
 
     @NotNull
-    @Size(max = 64)
-    @Column(name = "title", nullable = false, length = 64)
+    @Size(max = 128)
+    @Column(name = "title", nullable = false, length = 128)
     private String title;
 
     @NotNull
-    @Size(max = 1024)
-    @Column(name = "description", nullable = false, length = 1024)
+    @Size(max = 2048)
+    @Column(name = "description", nullable = false, length = 2048)
     private String description;
 
     @NotNull
     @Column(name = "rate", nullable = false)
     private double rate;
 
+    @Size(max = 1024)
+    @Column(name = "cover", length = 1024)
+    private String cover;
+
     @NotNull
-    @Size(max = 512)
-    @Column(name = "path", nullable = false, length = 512)
+    @Size(max = 51200)
+    @Column(name = "path", nullable = false, length = 51200)
     private String path;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "filmID")

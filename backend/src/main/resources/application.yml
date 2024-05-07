@@ -1,4 +1,8 @@
 spring:
+  servlet:
+    multipart:
+      max-file-size: 100000MB # Максимальный размер одного файла
+      max-request-size: 100000MB # Максимальный размер всего запроса
   threads:
     virtual:
       enabled: true
@@ -15,3 +19,26 @@ spring:
     url: jdbc:postgresql://localhost:5433/postgres
     username: postgres
     password: bbGh8cnnmbUHo1okBipp
+
+minio:
+  url: http://localhost:9000
+  username: admin
+  password: adminpass
+  put-object-part-size: 5242880 #value in bytes (minimum is 5 MB equivalent)
+
+photon:
+  streaming:
+    default-chunk-size: 3145728 #value in bytes
+
+app:
+  streaming:
+    default-chunk-size: 3145728 #value in bytes
+
+jwt:
+  signing-key: aW5zdGFodWIoY2h1cGFjaHVwczg0LGs0cjNsMW5zLHN3dHk0NSxpcmluYWZlZG9yb3ZpY2gxOTk1KQ==
+  expiration:
+    access-token: 1800000 # 30 min
+    refresh-token: 604800000 # 1 week
+
+auth:
+  uri: api/v1/auth

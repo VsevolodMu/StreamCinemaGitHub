@@ -15,5 +15,4 @@ public record UsersInDto(
         String profileInfo,
         String number,
         @Temporal(TemporalType.TIMESTAMP) Instant birth) {
-
 }

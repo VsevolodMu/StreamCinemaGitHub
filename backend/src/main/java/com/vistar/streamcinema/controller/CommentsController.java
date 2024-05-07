@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class CommentsController {
     private final CommentsService commentsService;
     private final CommentsMapper commentsMapper;

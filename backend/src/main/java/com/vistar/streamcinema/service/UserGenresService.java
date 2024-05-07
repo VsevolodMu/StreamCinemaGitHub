@@ -50,7 +50,6 @@ public class UserGenresService {
     @Transactional
     public UserGenres updateUserGenre(long id, UserGenres userGenres) {
         UserGenres userGenre = userGenreRepository.findById(id).orElseThrow(() -> new NotFoundException("Невозможно обновить данные. Жанр пользователя с id = " + id + " не найден в базе данных."));
-        ;
         userGenre.setUserID(userGenres.getUserID());
         userGenre.setGenreID(userGenres.getGenreID());
         return userGenreRepository.save(userGenre);

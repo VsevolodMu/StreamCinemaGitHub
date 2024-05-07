@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class FilmActorsController {
     private final FilmActorsService filmActorsService;
     private final FilmActorsMapper filmActorsMapper;

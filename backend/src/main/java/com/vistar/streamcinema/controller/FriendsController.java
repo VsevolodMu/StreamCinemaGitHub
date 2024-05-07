@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class FriendsController {
     private final FriendsService friendsService;
     private final FriendsMapper friendsMapper;

@@ -4,14 +4,16 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.Instant;
+import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 
@@ -20,8 +22,9 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Table(name = "users")
-public class Users extends BaseEntity<Long> {
+public class Users extends BaseEntity<Long> implements UserDetails {
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
@@ -55,6 +58,7 @@ public class Users extends BaseEntity<Long> {
     @Column(name = "email", nullable = false, length = 128)
     private String email;
 
+    @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @NotNull
     @Column(name = "registration_date", nullable = false)
@@ -75,8 +79,8 @@ public class Users extends BaseEntity<Long> {
     private String profileInfo;
 
     @NotNull
-    @Size(max = 12)
-    @Column(name = "number", nullable = false, length = 12)
+    @Size(max = 20)
+    @Column(name = "number", nullable = false, length = 20)
     private String number;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -105,6 +109,9 @@ public class Users extends BaseEntity<Long> {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "senderID")
     private Set<Messages> messagesList;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private Set<Jwt> jwtSet;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "requestID")
     private Set<Friends> friendsRequesterList;
 
@@ -113,4 +120,42 @@ public class Users extends BaseEntity<Long> {
 
     @OneToOne(fetch = FetchType.EAGER, mappedBy = "userID")
     private Subscriptions subscriptions;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

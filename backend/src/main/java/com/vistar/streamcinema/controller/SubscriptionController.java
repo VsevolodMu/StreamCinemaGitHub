@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class SubscriptionController {
     private final SubscriptionService subscriptionService;
     private final SubscriptionsMapper subscriptionsMapper;

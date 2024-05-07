@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f55b2f78-862d-4ebe-afde-189f8cf6b92a" name="Changes" comment="" />
+    <list default="true" id="f55b2f78-862d-4ebe-afde-189f8cf6b92a" name="Changes" comment="Project Init" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +12,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 7
@@ -27,6 +30,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -46,11 +53,32 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713363525892</updated>
-      <workItem from="1713363527016" duration="5000" />
+      <workItem from="1713363527016" duration="841000" />
     </task>
+    <task id="LOCAL-00001" summary="Project Init">
+      <option name="closed" value="true" />
+      <created>1713363642939</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713363642939</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Project Init">
+      <option name="closed" value="true" />
+      <created>1713363761529</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713363761529</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Project Init" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project Init" />
   </component>
 </project>

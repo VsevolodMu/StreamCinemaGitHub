@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class UserGenresController {
     private final UserGenresService userGenresService;
     private final UserGenresMapper userGenresMapper;

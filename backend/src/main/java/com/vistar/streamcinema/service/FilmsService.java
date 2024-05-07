@@ -37,11 +37,17 @@ public class FilmsService {
     }
 
     @Transactional
+    public List<Films> getTheMostPopularFilms() {
+        return filmsRepository.findByRate(5);
+    }
+
+    @Transactional
     public Films updateFilm(long id, Films films) {
         Films film = filmsRepository.findById(id).orElseThrow(() -> new NotFoundException("Невозможно обновить данные. Фильм с id = " + id + " не найден в базе данных."));
         film.setTitle(films.getTitle());
         film.setDescription(films.getDescription());
         film.setRate(films.getRate());
+        film.setCover(films.getCover());
         film.setPath(films.getPath());
         return filmsRepository.save(film);
     }

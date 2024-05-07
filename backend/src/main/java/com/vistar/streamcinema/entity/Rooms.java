@@ -22,7 +22,7 @@ import java.util.Set;
 public class Rooms extends BaseEntity<Long> {
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @NotNull
+    @Column(name = "created_at")
     public Instant createdDate;
 
     @UpdateTimestamp

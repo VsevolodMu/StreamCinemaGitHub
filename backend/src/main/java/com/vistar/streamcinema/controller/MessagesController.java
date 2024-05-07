@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class MessagesController {
     private final MessagesService messagesService;
     private final MessagesMapper messagesMapper;
